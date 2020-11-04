@@ -19,3 +19,4 @@ Feature: Search
   Scenario: Google title verification after search
     When User searches "peach"
     Then User should see "peach" in the title
+
