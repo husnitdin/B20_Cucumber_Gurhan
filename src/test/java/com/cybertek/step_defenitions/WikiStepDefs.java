@@ -27,4 +27,19 @@ public class WikiStepDefs {
         String act = Driver.getDriver().getTitle().toLowerCase();
         Assert.assertTrue(expTitle + " not exist in the actual title", act.contains(exp));
     }
+
+    @Then("User should see {string} in the main header")
+    public void userShouldSeeInTheMainHeader(String mHeader) {
+        String expMH = mHeader.toLowerCase();
+        String actMH = wikiSearchPage.mainHeader.getText().toLowerCase();
+        Assert.assertEquals("Headers don't match", actMH, expMH);
+    }
+
+    @Then("User should see {string} in the image header")
+    public void userShouldSeeInTheImageHeader(String mHeader) {
+        String expIH = mHeader.toLowerCase();
+        String actIH = wikiSearchPage.imageHeader.getText().toLowerCase();
+        Assert.assertEquals("Headers don't match", actIH, expIH);
+
+    }
 }
