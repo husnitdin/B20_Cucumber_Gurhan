@@ -15,8 +15,31 @@ Feature: Search
     Then User should see apple in the title
 
       # Option + Enter generates step definitions
-
   Scenario: Google title verification after search
     When User searches "peach"
     Then User should see "peach" in the title
+
+  @googleHomePageLinks
+  Scenario: Google search page footer links verification
+    Then User should see six links in the footer
+      | Advertising      |
+      | Business         |
+      | How Search Works |
+      | Privacy          |
+      | Terms            |
+      | Settings         |
+      | About            |
+
+
+
+
+
+
+
+
+
+
+
+
+
 

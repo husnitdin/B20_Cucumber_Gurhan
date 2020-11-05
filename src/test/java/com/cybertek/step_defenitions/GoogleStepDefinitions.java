@@ -8,6 +8,8 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 
+import java.util.List;
+
 public class GoogleStepDefinitions {
     // creating the page object
     GoogleSearchPage googleSearchPage = new GoogleSearchPage();
@@ -47,5 +49,14 @@ public class GoogleStepDefinitions {
         String actTitle = Driver.getDriver().getTitle();
 
         Assert.assertEquals(actTitle, expTitle);
+    }
+
+    @Then("User should see six links in the footer")
+    public void userShouldSeeSixLinksInTheFooter(List<String> linkList) {
+
+       int expSize = linkList.size();
+       int actSize = googleSearchPage.footerLinks.size();
+       Assert.assertEquals("number of links is not equal", actSize, expSize);
+
     }
 }
