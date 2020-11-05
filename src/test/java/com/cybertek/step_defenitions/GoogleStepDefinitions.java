@@ -45,10 +45,10 @@ public class GoogleStepDefinitions {
 
     @Then("User should see {string} in the title")
     public void userShouldSeeInTheTitle(String searchValue) {
-        String expTitle = searchValue+" - Google qidiruvi";
+        String expTitle = searchValue;
         String actTitle = Driver.getDriver().getTitle();
 
-        Assert.assertEquals(actTitle, expTitle);
+        Assert.assertTrue(actTitle.contains(expTitle));
     }
 
     @Then("User should see six links in the footer")
