@@ -6,10 +6,13 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 
-        plugin = "html:target/cucumber-report.html",    // creates reports
-        features = "src/test/resources/features",       // feature file path
+        plugin = {"html:target/cucumber-report.html",  // html report
+                  "json:target/cucumber-report.json",  // JSON report
+                  "rerun:target/rerun.txt"             // rerun txt
+                 },
+        features = "src/test/resources/features",
         glue = "com/cybertek/step_defenitions",
-        tags = "@SJCheckInThreePlaces"
+        tags = "@wiki"
 )
 public class CukesRunner {
 }

@@ -1,8 +1,9 @@
 package com.cybertek.step_defenitions;
-import io.cucumber.java.After;
-import io.cucumber.java.AfterStep;
-import io.cucumber.java.Before;
-import io.cucumber.java.BeforeStep;
+import com.cybertek.utiities.Driver;
+import io.cucumber.java.*;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+
 public class Hooks {
 
     @Before(order = 2)
@@ -21,8 +22,11 @@ public class Hooks {
 
     @After (order = 1)
     // closing the browser
-    public void tearDownScenario(){
-        // System.out.println("tearing down: After");
+    public void tearDownScenario(Scenario scenario){
+        if (scenario.isFailed()){
+            byte[] screenshot = ( (TakesScreenshot)Driver.getDriver() ).getScreenshotAs(OutputType.BYTES);
+            scenario.attach( screenshot, "image/png", scenario.getName() );
+        }
     }
 
     @After(value = "@dataBase", order = 2)
