@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 
         plugin = {"html:target/cucumber-report.html",  // html report
                   "json:target/cucumber-report.json",  // JSON report
-                  "rerun:target/rerun.txt"             // rerun txt
+                  //"rerun:target/rerun.txt"             // rerun txt
                  },
         features = "src/test/resources/features",
         glue = "com/cybertek/step_defenitions",
