@@ -1,8 +1,12 @@
 package com.cybertek.step_defenitions;
 import com.cybertek.utiities.Driver;
 import io.cucumber.java.*;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+
+import java.io.File;
 
 public class Hooks {
 
@@ -45,5 +49,8 @@ public class Hooks {
     public void tearDownStep(){
         // System.out.println("after step screenshot");
     }
+
+
+
 }
 
